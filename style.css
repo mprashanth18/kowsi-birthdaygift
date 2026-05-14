@@ -1,0 +1,990 @@
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffe5f0,#fff6fb,#fffdfd);
+    overflow:hidden;
+    color:#ff4f87;
+    position:relative;
+}
+
+/* ========================================= */
+/* COMMON */
+/* ========================================= */
+
+img{
+    width:100%;
+    display:block;
+}
+
+button,
+input{
+    font-family:'Poppins',sans-serif;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* ========================================= */
+/* PAGE SYSTEM */
+/* ========================================= */
+
+.page{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:opacity .7s ease;
+
+    padding:25px 16px 80px;
+}
+
+.page.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    z-index:5;
+}
+
+.center-container{
+    min-height:calc(100vh - 50px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ========================================= */
+/* FLOATING EMOJIS */
+/* ========================================= */
+
+.floating-emojis{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.floating-emojis span{
+    position:absolute;
+    bottom:-120px;
+    font-size:24px;
+    opacity:.55;
+
+    animation:floatEmoji linear infinite;
+}
+
+.floating-emojis span:nth-child(1){
+    left:5%;
+    animation-duration:12s;
+}
+
+.floating-emojis span:nth-child(2){
+    left:18%;
+    animation-duration:16s;
+}
+
+.floating-emojis span:nth-child(3){
+    left:32%;
+    animation-duration:15s;
+}
+
+.floating-emojis span:nth-child(4){
+    left:48%;
+    animation-duration:18s;
+}
+
+.floating-emojis span:nth-child(5){
+    left:62%;
+    animation-duration:14s;
+}
+
+.floating-emojis span:nth-child(6){
+    left:76%;
+    animation-duration:17s;
+}
+
+.floating-emojis span:nth-child(7){
+    left:90%;
+    animation-duration:13s;
+}
+
+.floating-emojis span:nth-child(8){
+    left:96%;
+    animation-duration:15s;
+}
+
+@keyframes floatEmoji{
+
+    0%{
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        translateY(-130vh)
+        rotate(360deg);
+    }
+
+}
+
+/* ========================================= */
+/* GLASS CARD */
+/* ========================================= */
+
+.glass-card{
+    width:min(92%,450px);
+
+    background:rgba(255,255,255,.42);
+
+    backdrop-filter:blur(14px);
+
+    border:2px solid rgba(255,255,255,.4);
+
+    border-radius:32px;
+
+    padding:35px 25px;
+
+    box-shadow:
+    0 10px 40px rgba(255,105,155,.18);
+
+    position:relative;
+    z-index:5;
+}
+
+/* ========================================= */
+/* TITLES */
+/* ========================================= */
+
+.main-title,
+.section-title,
+.quiz-title,
+.wish-title{
+    font-family:'Baloo 2',cursive;
+    text-align:center;
+    line-height:1.3;
+}
+
+.main-title{
+    font-size:2rem;
+    margin-bottom:24px;
+}
+
+.section-title{
+    font-size:2.6rem;
+    margin-bottom:35px;
+}
+
+.quiz-title{
+    font-size:2.5rem;
+    margin-bottom:45px;
+}
+
+.wish-title{
+    font-size:2.6rem;
+    margin-bottom:30px;
+}
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+
+.primary-btn{
+    border:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff6ca8,
+        #ff93c1
+    );
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:999px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    box-shadow:
+    0 10px 25px rgba(255,105,155,.3);
+}
+
+.primary-btn:hover{
+    transform:
+    translateY(-3px)
+    scale(1.03);
+}
+
+.primary-btn:active{
+    transform:scale(.96);
+}
+
+/* ========================================= */
+/* PASSWORD PAGE */
+/* ========================================= */
+
+.password-card{
+    text-align:center;
+}
+
+.cute-puppy,
+.big-puppy,
+.music-puppy{
+    font-size:4.5rem;
+    margin-bottom:10px;
+
+    animation:puppyBounce 2s infinite;
+}
+
+@keyframes puppyBounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.password-box{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.password-box input{
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:white;
+
+    font-size:1rem;
+
+    color:#ff4f87;
+}
+
+#passwordMessage{
+    min-height:28px;
+    margin-top:18px;
+    font-weight:600;
+}
+
+/* ========================================= */
+/* CAKE PAGE */
+/* ========================================= */
+
+.cake-wrapper{
+    width:100%;
+    max-width:520px;
+
+    text-align:center;
+
+    position:relative;
+    z-index:5;
+}
+
+.cake-area{
+    width:300px;
+    height:320px;
+
+    margin:0 auto 25px;
+
+    position:relative;
+}
+
+.candles{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+
+    margin-bottom:10px;
+}
+
+.candle{
+    width:12px;
+    height:65px;
+
+    background:white;
+
+    border-radius:10px;
+
+    position:relative;
+}
+
+.flame{
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:gold;
+
+    top:-16px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    animation:flicker .7s infinite;
+}
+
+@keyframes flicker{
+
+    0%,100%{
+        transform:
+        translateX(-50%)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translateX(-50%)
+        scale(1.2);
+    }
+
+}
+
+.cake{
+    margin-top:20px;
+}
+
+.cake-top,
+.cake-middle,
+.cake-bottom,
+.cake-half{
+    margin:auto;
+    border-radius:22px;
+}
+
+.cake-top{
+    width:180px;
+    height:60px;
+    background:#ffb2d0;
+}
+
+.cake-middle{
+    width:225px;
+    height:75px;
+    margin-top:10px;
+    background:#ff82b6;
+}
+
+.cake-bottom{
+    width:270px;
+    height:85px;
+    margin-top:10px;
+    background:#ff4f87;
+}
+
+.cake-split{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+
+    margin-top:45px;
+}
+
+.cake-half{
+    width:110px;
+    height:180px;
+
+    background:
+    linear-gradient(
+        #ffb7d4,
+        #ff4f87
+    );
+}
+
+.knife{
+    position:absolute;
+
+    right:-10px;
+    top:105px;
+
+    font-size:3rem;
+}
+
+/* ========================================= */
+/* LIGHT PAGE */
+/* ========================================= */
+
+.light-card{
+    text-align:center;
+}
+
+.glow-btn{
+    animation:glowPulse 2s infinite;
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+        box-shadow:
+        0 0 15px rgba(255,105,155,.4);
+    }
+
+    50%{
+        box-shadow:
+        0 0 35px rgba(255,105,155,.8);
+    }
+
+}
+
+.light-effects{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+
+    margin-top:25px;
+
+    font-size:2rem;
+
+    animation:sparkle 2s infinite;
+}
+
+@keyframes sparkle{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+/* ========================================= */
+/* MEMORIES PAGE */
+/* ========================================= */
+
+.memories-page-container{
+    width:100%;
+    max-width:1200px;
+
+    margin:0 auto;
+
+    position:relative;
+    z-index:5;
+}
+
+.memories-title{
+    margin-bottom:55px;
+}
+
+.memories-wrapper{
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:70px;
+}
+
+.memory-card{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:45px;
+
+    flex-wrap:wrap;
+}
+
+.memory-card.left{
+    flex-direction:row;
+}
+
+.memory-card.right{
+    flex-direction:row-reverse;
+}
+
+/* ========================================= */
+/* POLAROID */
+/* ========================================= */
+
+.polaroid{
+    width:320px;
+
+    background:white;
+
+    padding:16px 16px 24px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.12);
+
+    transition:.4s ease;
+
+    transform:rotate(-2deg);
+}
+
+.memory-card.right .polaroid{
+    transform:rotate(2deg);
+}
+
+.polaroid:hover{
+    transform:
+    scale(1.03)
+    rotate(0deg);
+}
+
+.polaroid img{
+    width:100%;
+    height:360px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+}
+
+.polaroid p{
+    text-align:center;
+
+    margin-top:14px;
+
+    font-family:'Baloo 2',cursive;
+
+    font-size:1.3rem;
+}
+
+/* ========================================= */
+/* MEMORY NOTE */
+/* ========================================= */
+
+.memory-note{
+    width:330px;
+    min-height:220px;
+
+    background:#fff4c8;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    font-family:'Patrick Hand',cursive;
+
+    color:#555;
+
+    font-size:1.55rem;
+
+    line-height:1.7;
+
+    position:relative;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.memory-note::before{
+    content:'✨';
+
+    position:absolute;
+
+    top:-14px;
+    right:18px;
+
+    font-size:2rem;
+}
+
+/* ========================================= */
+/* BOTTOM BUTTON */
+/* ========================================= */
+
+.bottom-btn-container{
+    padding:10px 0 60px;
+}
+
+/* ========================================= */
+/* POPUP MESSAGE */
+/* ========================================= */
+
+.popup-message{
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:white;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+
+    z-index:100;
+
+    font-family:'Baloo 2',cursive;
+
+    animation:popupDrop 1s ease;
+}
+
+@keyframes popupDrop{
+
+    from{
+        opacity:0;
+        transform:
+        translate(-50%,-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translate(-50%,0);
+    }
+
+}
+
+/* ========================================= */
+/* WISH PAGE */
+/* ========================================= */
+
+.wish-page-container,
+.quiz-page-container,
+.end-page-container{
+    width:100%;
+    max-width:950px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    position:relative;
+    z-index:5;
+}
+
+.wish-image{
+    width:min(90%,340px);
+
+    margin:0 auto 35px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 12px 30px rgba(255,105,155,.2);
+}
+
+.wish-paper,
+.end-paper{
+    width:100%;
+
+    background:#fff4c8;
+
+    border-radius:26px;
+
+    padding:35px;
+
+    text-align:left;
+
+    font-family:'Patrick Hand',cursive;
+
+    font-size:1.6rem;
+
+    line-height:2;
+
+    color:#555;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+}
+
+.end-paper{
+    min-height:500px;
+}
+
+/* ========================================= */
+/* QUIZ */
+/* ========================================= */
+
+.quiz-box{
+    background:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    margin-bottom:30px;
+
+    text-align:left;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.quiz-box h2{
+    margin-bottom:20px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.option-btn{
+    border:none;
+
+    background:#ffe8f1;
+
+    color:#ff4f87;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.option-btn:hover{
+    transform:translateY(-3px);
+}
+
+.option-btn.correct{
+    background:#8dffc6;
+    color:#08693a;
+}
+
+.option-btn.wrong{
+    background:#ffd1d1;
+    color:#9c1f1f;
+}
+
+#quizResult{
+    margin-top:28px;
+
+    font-family:'Baloo 2',cursive;
+
+    font-size:2rem;
+}
+
+/* ========================================= */
+/* VIDEO PAGE */
+/* ========================================= */
+
+.video-page-container{
+    width:min(95%,900px);
+    text-align:center;
+}
+
+.video-frame{
+    width:100%;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+}
+
+.video-frame{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.video-frame video{
+
+    width:320px;
+    height:570px;
+
+    max-width:90vw;
+    max-height:80vh;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    background:black;
+
+}
+/* ========================================= */
+/* END PAGE */
+/* ========================================= */
+
+.voice-note-container{
+    width:min(100%,520px);
+
+    margin:0 auto 35px;
+}
+
+.voice-note-container h2{
+    margin-bottom:20px;
+}
+
+.voice-note-container audio{
+    width:100%;
+}
+
+.ending-text{
+    font-family:'Baloo 2',cursive;
+    font-size:2rem;
+
+    padding-bottom:40px;
+}
+
+/* ========================================= */
+/* POPUP OVERLAY */
+/* ========================================= */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+}
+
+.popup-card{
+    width:min(90%,400px);
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:35px 25px;
+
+    text-align:center;
+}
+
+.popup-card p{
+    margin-bottom:25px;
+
+    font-family:'Baloo 2',cursive;
+
+    font-size:1.4rem;
+
+    line-height:1.7;
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:768px){
+
+    .main-title,
+    .section-title,
+    .wish-title,
+    .quiz-title{
+        font-size:2rem;
+    }
+
+    .memory-card.left,
+    .memory-card.right{
+        flex-direction:column;
+    }
+
+    .polaroid,
+    .memory-note{
+        width:100%;
+        max-width:340px;
+    }
+
+    .memory-note{
+        min-height:auto;
+        font-size:1.35rem;
+    }
+
+    .polaroid img{
+        height:320px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .wish-paper,
+    .end-paper{
+        font-size:1.35rem;
+        padding:25px;
+    }
+
+    .glass-card{
+        padding:28px 20px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .section-title,
+    .wish-title,
+    .quiz-title{
+        font-size:1.8rem;
+    }
+
+    .primary-btn{
+        width:100%;
+    }
+
+    .memory-note,
+    .wish-paper,
+    .end-paper{
+        font-size:1.2rem;
+    }
+
+}
